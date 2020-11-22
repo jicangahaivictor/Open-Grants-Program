@@ -108,7 +108,7 @@ BVI company.
 
 
 ### Overview
-* **Total Estimated Duration:** 2.5 month
+* **Total Estimated Duration:** 12 weeks
 * **Full-time equivalent (FTE):**  2
 * **Total Costs:** 1.8 BTC
 
@@ -120,9 +120,9 @@ BVI company.
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 1. | Stingray::Algebra Rust Strate | We will create Stingray Rust crate that contains the finite fields and operations, generic elliptic curves, FFT, and pairings with API documentations. |
-| 2. | Micro-benmark | micro-benchmark results of the above primitives and compared them with their counterparts in [arkworks::algebra] |
-| 3. | Docker | We will provide a dockerfile to show that we can use Stingray::Algebra to generate substrate pallet. |
+| 1. | Manta Substrate Node Protoype | An open-sourced Manta DAP propotype substrate pallet. It will contains several pallets, such as zkSNARK verifier runtime, ledger state, and validation logic, etc. Support basic functionalities such as mint private coins, transferring private coins. This first version of Manta DAP will only support DOT/KUSAMA.|
+| 2. | Benchmark | benchmark on Manta DAP transaction latency and throughput |
+| 3. | Docker | We will provide a dockerfile to demonstrate the end-to-end use case of Manta DAP.  |
 
 
 ### Milestone 2 — Manta DAP Client and Integration
@@ -134,28 +134,31 @@ BVI company.
 | Number | Deliverable | Specification |
 | ------------- | ------------- | ------------- |
 | 0a. | License | Apache 2.0 |
-| 1. | Stingray::Curve Rust crate | implementation of BLS12-381 and BLS12-377 and their Edward version with API documentations |
-| 2. | Stingray::Schnorr | implementation of Schnorr signature scheme on Edward embedded curves, provided by Stingray::Curve | 
-| 3. | Stingray::BLS-Signature Rust crate | implementation of [BLS signature scheme](https://datatracker.ietf.org/doc/draft-irtf-cfrg-bls-signature/?include_text=1) on BLS12-381 curve provided by Stingray::Curve with API documentation  |
-| 4. | Stingray::Pedersen Rust crate | implementation of Pedersen hash on both curves provided by Stingray::Curve with API documentation |
-| 5. | Stingray::ElGamal Rust crate | implementation of ElGamal encryption scheme on both curves provided by Stingray::Curve with API documentation |
-| 6. | Docker | A docker file to show that all these crate are substrate compatible |
-| 7. | Benchmark | micro-benmark results of the Stingray::curves primitives and compared them with their counterparts in [arkworks::curves], benchmark results of BLS-Sigature, Pedersen, and ElGamal|
+| 1. | Manta Substrate Node Prototype | Compared with the prototype in Milestone I, we will add support for minting parachain assets to private coins in this prototype.|
+| 2. | Manta Client Prototype | The client that could generate `tx_mint` and `tx_transfer` transactions with zero-knowledge proofs. | 
+| 3. | Benchmark | We will benchmark the laterncy and throughput of using parachain assets as basecoins, as well as the overhead of prover in the client side.   |
+| 4. | Docker | A docker file to that demonstrate both Manta substrate node and Manta client functionalities. |
+
 
 ### Community engagement
 
-As part of the Program, we plan to publish several medium articles/tutorials:
-* general guide on how to build substrates compatible cryptographic primitives
-* tutorials of using each libraries
+As part of the Program, we plan to publish several medium articles/tutorials, including:
+* Why privacy matters, why the current blockchain transactions are NOT private.
+* Manta's innovative design and architecture
+* A guide for parachain assets integrating with Manta
+* How to use Manta client to execute private transactions
 
 ## Future Plans
 
-Stingray is part of [Manta](https://manta.network) project. We plan to finish Stingray stack and keep adding new features to Stingray, including:
-* stingray::R1CS and stingray::snark crates
-* common gadgets implemented using stingray::snark
-* a ceremony tool to do decentralized trusted setup using MPC (secure multi-party computation)
-* lead a community effort to create a open standard for DApp using zkSNARK on Polkadot
+### Community Plan
+
+
+### Development Plan
+Manta DAP is the foundational part of [Manta](https://manta.network) project. The future plan of Manta includes:
+* Manta DAX scheme that support private exchange of private coins
+* A ceremony tool to do decentralized trusted setup using MPC (secure multi-party computation)
+* A community effort to create a open standard for DApp using zkSNARK on Polkadot, so that ZK based applications can be composed together more easily.
 
 ## Additional Information :heavy_plus_sign:
 
-Fun fact: all Manta projects are named after sea creatures.
+We finished the cryptographic scheme design of Manta, see [Manta White Paper](https://github.com/Manta-Network/Manta-Whitepaper/blob/main/manta-whitepaper.pdf). We are still quickly iterating and refining the engineering details of Manta. 
